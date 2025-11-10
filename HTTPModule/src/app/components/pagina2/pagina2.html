@@ -1,1 +1,15 @@
-<p>pagina2 works!</p>
+<div *ngIf="data">
+  <h3>{{ data.near_earth_objects['2015-09-08'][0].name }}</h3>
+  <p>ID: {{ data.near_earth_objects['2015-09-08'][0].id }}</p>
+  <p>Magnitudine: {{ data.near_earth_objects['2015-09-08'][0].absolute_magnitude_h }}</p>
+  <p>
+    Diametro minimo:
+    {{ data.near_earth_objects['2015-09-08'][0].estimated_diameter.kilometers.estimated_diameter_min }}
+    km
+  </p>
+  <p>Pericoloso: {{ data.near_earth_objects['2015-09-08'][0].is_potentially_hazardous_asteroid ? 'Sì' : 'No' }}</p>
+</div>
+
+<div *ngIf="!data">
+  <p>Nessun dato disponibile.</p>
+</div>
